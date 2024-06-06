@@ -37,5 +37,22 @@ namespace Repositories
             }
             return status;
         }
+
+        public List<String> GetAllJobIdName()
+        {
+            List<String> temp = new();
+            using (var db = new SqlConnection(Conn))
+            {
+                db.Open();
+                var jobList = db.Query("SELECT ID, DESCRIPTION_JOB FROM TB_JOB");
+                foreach (var item in jobList)
+                {
+                    string jobIdName = $"Id: {item.ID} - Descricao: {item.DESCRIPTION_JOB}";
+                    temp.Add(jobIdName);
+                }
+                db.Close();
+                return (List<String>)jobList;
+            }
+        }
     }
 }

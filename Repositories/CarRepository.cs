@@ -41,5 +41,21 @@ namespace Repositories
             }
             return status;
         }
+
+        public List<String> GetAllCarPlate()
+        {
+            List<String> temp = new();
+            using (var db = new SqlConnection(Conn))
+            {
+                db.Open();
+                var carPlates = db.Query("SELECT CAR_PLATE FROM TB_CAR");
+                foreach (var item in carPlates)
+                {
+                    temp.Add(item.CAR_PLATE);
+                }
+                db.Close();
+                return (List<string>)carPlates;
+            }
+        }
     }
 }

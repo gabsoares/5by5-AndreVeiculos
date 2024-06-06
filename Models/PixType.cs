@@ -8,6 +8,7 @@ namespace Models
 {
     public class PixType
     {
+        public static readonly string INSERT = "INSERT INTO TB_TYPE_PIX (DESCRIPTION_PIX) VALUES (@DESC)";
         public int Id { get; set; }
         public string Description { get; set; }
     }
