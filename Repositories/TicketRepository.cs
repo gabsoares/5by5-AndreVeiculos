@@ -17,28 +17,27 @@ namespace Repositories
             Conn = ConfigurationManager.ConnectionStrings["StringConnection"].ConnectionString;
         }
 
-        public bool InsertTicket(Ticket ticket)
+        public int InsertTicket(Ticket ticket)
         {
-            bool status = false;
+            int result = 0;
             try
             {
                 using (var db = new SqlConnection(Conn))
                 {
                     db.Open();
-                    db.Execute(Ticket.INSERT, new
+                    result = db.ExecuteScalar<int>(Ticket.INSERT, new
                     {
                         TNumber = ticket.Number,
                         ExpDate = ticket.ExpirationDate
                     });
                     db.Close();
                 }
-                status = true;
             }
             catch (Exception)
             {
                 throw;
             }
-            return status;
+            return result;
         }
     }
 }

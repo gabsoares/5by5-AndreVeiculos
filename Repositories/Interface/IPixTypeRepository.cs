@@ -4,6 +4,6 @@ namespace Repositories.Interface
 {
     public interface IPixTypeRepository
     {
-        bool InsertPixType(PixType pixType);
+        int InsertPixType(PixType pixType);
     }
 }

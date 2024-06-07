@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
     public abstract class Person
     {
+        [Key]
         public string? CPF { get; set; }
         public string? Name { get; set; }
         public DateTime DateOfBirth { get; set; }

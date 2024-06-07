@@ -13,7 +13,7 @@ namespace Controllers
             _ticketService = new TicketService();
         }
 
-        public bool InsertTicket(Ticket ticket)
+        public int InsertTicket(Ticket ticket)
         {
             return _ticketService.InsertTicket(ticket);
         }

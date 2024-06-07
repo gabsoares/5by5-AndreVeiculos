@@ -1,11 +1,6 @@
 ﻿using Models;
 using Repositories;
 using Repositories.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
@@ -18,7 +13,7 @@ namespace Services
             _ticketRepository = new TicketRepository();
         }
 
-        public bool InsertTicket(Ticket ticket)
+        public int InsertTicket(Ticket ticket)
         {
             return _ticketRepository.InsertTicket(ticket);
         }

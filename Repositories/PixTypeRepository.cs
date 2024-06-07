@@ -15,27 +15,26 @@ namespace Repositories
             Conn = ConfigurationManager.ConnectionStrings["StringConnection"].ConnectionString;
         }
 
-        public bool InsertPixType(PixType pixType)
+        public int InsertPixType(PixType pixType)
         {
-            bool status = false;
+            int result = 0;
             try
             {
                 using (var db = new SqlConnection(Conn))
                 {
                     db.Open();
-                    db.Execute(PixType.INSERT, new
+                    result = db.ExecuteScalar<int>(PixType.INSERT, new
                     {
                         Desc = pixType.Description,
                     });
                     db.Close();
                 }
-                status = true;
             }
             catch (Exception)
             {
                 throw;
             }
-            return status;
+            return result;
         }
     }
 }

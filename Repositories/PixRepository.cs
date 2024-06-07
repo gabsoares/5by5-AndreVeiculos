@@ -15,28 +15,27 @@ namespace Repositories
             Conn = ConfigurationManager.ConnectionStrings["StringConnection"].ConnectionString;
         }
 
-        public bool InsertPix(Pix pix)
+        public int InsertPix(Pix pix)
         {
-            bool status = false;
+            int result = 0;
             try
             {
                 using (var db = new SqlConnection(Conn))
                 {
                     db.Open();
-                    db.Execute(Pix.INSERT, new
+                    result = db.ExecuteScalar<int>(Pix.INSERT, new
                     {
                         TpPixId = pix.PixType?.Id,
                         PixKey = pix.PixKey
                     });
                     db.Close();
                 }
-                status = true;
             }
             catch (Exception)
             {
                 throw;
             }
-            return status;
+            return result;
         }
     }
 }

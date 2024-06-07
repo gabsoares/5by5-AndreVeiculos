@@ -9,6 +9,6 @@ namespace Repositories.Interface
 {
     public interface IPixRepository
     {
-        bool InsertPix(Pix pix);
+        int InsertPix(Pix pix);
     }
 }

@@ -12,7 +12,7 @@ namespace Controllers
             _pixService = new PixService();
         }
 
-        public bool InsertPix(Pix pix)
+        public int InsertPix(Pix pix)
         {
             return _pixService.InsertPix(pix);
         }

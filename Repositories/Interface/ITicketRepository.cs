@@ -9,6 +9,6 @@ namespace Repositories.Interface
 {
     public interface ITicketRepository
     {
-        bool InsertTicket(Ticket ticket);
+        int InsertTicket(Ticket ticket);
     }
 }

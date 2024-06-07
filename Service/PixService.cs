@@ -13,7 +13,7 @@ namespace Services
             _pixRepository = new PixRepository();
         }
 
-        public bool InsertPix(Pix pix)
+        public int InsertPix(Pix pix)
         {
             return _pixRepository.InsertPix(pix);
         }

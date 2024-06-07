@@ -13,7 +13,7 @@ namespace Services
             _pixTypeService = new PixTypeRepository();
         }
 
-        public bool InsertPixType(PixType pixType)
+        public int InsertPixType(PixType pixType)
         {
             return _pixTypeService.InsertPixType(pixType);
         }
